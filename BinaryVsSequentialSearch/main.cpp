@@ -8,10 +8,11 @@
 
 #include <iostream>
 #include "Algorithms.hpp"
+#include <chrono>
 
-std::clock_t start;
-std::clock_t end;
-double duration;
+std::chrono::system_clock::time_point start;
+std::chrono::system_clock::time_point end;
+std::chrono::duration<float, std::milli> duration;
 int const ARRAY_SIZE = 1000;
 
 int main(int argc, const char * argv[]) {
@@ -23,20 +24,20 @@ int main(int argc, const char * argv[]) {
 		sequentialArr[i] = i;
 	
 	// Run sequential search
-	start = std::clock();
+	start = std::chrono::system_clock::now();
 	for (int i : sequentialArr)
 		Algorithms::SequentialSearch(sequentialArr, i, ARRAY_SIZE);
-	end = std::clock();
-	duration = (end - start) / (double) CLOCKS_PER_SEC;
-	std::cout << "Duration: " << duration << "s!" << std::endl;
+	end = std::chrono::system_clock::now();
+	duration = end - start;
+	std::cout << "Duration: " << duration.count() << "ms" << std::endl;
 
 	// Run binary search
-	start = std::clock();
+	start = std::chrono::system_clock::now();
 	for (auto i : sequentialArr)
 		Algorithms::BinarySearch(sequentialArr, i, ARRAY_SIZE);
-	end = std::clock();
-	duration = (end - start) / (double) CLOCKS_PER_SEC;
-	std::cout << "Duration: " << duration << "s!" << std::endl;
+	end = std::chrono::system_clock::now();
+	duration = end - start;
+	std::cout << "Duration: " << duration.count() << "ms" << std::endl;
 
     return 0;
 }
