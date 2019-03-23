@@ -8,6 +8,9 @@
 
 #include "Algorithms.hpp"
 
+/**
+ * Search a sorted array of integers to find a given target, using a Binary Search approach.
+ */
 int Algorithms::BinarySearch(int array[], int target, int arraySize) {
 	int left = 0;
 	int right = arraySize - 1;
@@ -29,6 +32,9 @@ int Algorithms::BinarySearch(int array[], int target, int arraySize) {
 	return -1;
 }
 
+/**
+ * Search a sorted array of integers to find a given target, using a Sequential Search approach.
+ */
 int Algorithms::SequentialSearch(int array[], int target, int arraySize) {
 	for (auto i = 0; i < arraySize; i++){
 		if (array[i] == target)

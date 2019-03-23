@@ -10,9 +10,11 @@
 #include "Algorithms.hpp"
 #include <chrono>
 
+// Start, End and Duration variables for timing searches
 std::chrono::system_clock::time_point start;
 std::chrono::system_clock::time_point end;
 std::chrono::duration<float, std::milli> duration;
+// Constant to hold array size
 int const ARRAY_SIZE = 1000;
 
 int main(int argc, const char * argv[]) {
