@@ -30,8 +30,7 @@ int Algorithms::BinarySearch(int array[], int target, int arraySize) {
 }
 
 int Algorithms::SequentialSearch(int array[], int target, int arraySize) {
-	int i = 0;
-	while(i < arraySize) {
+	for (auto i = 0; i < arraySize; i++){
 		if (array[i] == target)
 			return i;
 	}

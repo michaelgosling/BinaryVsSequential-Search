@@ -13,7 +13,6 @@ std::clock_t start;
 std::clock_t end;
 double duration;
 int const ARRAY_SIZE = 1000;
-int response;
 
 int main(int argc, const char * argv[]) {
 	// Create array
@@ -26,16 +25,18 @@ int main(int argc, const char * argv[]) {
 	// Run sequential search
 	start = std::clock();
 	for (int i : sequentialArr)
-		response = Algorithms::SequentialSearch(sequentialArr, i, ARRAY_SIZE);
+		Algorithms::SequentialSearch(sequentialArr, i, ARRAY_SIZE);
 	end = std::clock();
 	duration = (end - start) / (double) CLOCKS_PER_SEC;
-	if (response != -1)
-		std::cout << "Found in " << duration << "s!" << std::endl;
-	else
-		std::cout << "Not found! Time spent looking: " << duration << "s" << std::endl;
+	std::cout << "Duration: " << duration << "s!" << std::endl;
 
 	// Run binary search
-	
+	start = std::clock();
+	for (auto i : sequentialArr)
+		Algorithms::BinarySearch(sequentialArr, i, ARRAY_SIZE);
+	end = std::clock();
+	duration = (end - start) / (double) CLOCKS_PER_SEC;
+	std::cout << "Duration: " << duration << "s!" << std::endl;
 
     return 0;
 }
