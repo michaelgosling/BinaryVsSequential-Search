@@ -1,1 +1,1 @@
-# Binary Searches and Trees
+# Binary Search vs Sequential Search
